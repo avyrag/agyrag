@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    
+	/* Isso garante que a página ocupe a tela toda sem margens estranhas */
+    body { 
+        margin: 0; 
+        padding: 0; 
+        background-color: #f7a8c4; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+    }
+	
+	/* O container agora tem o tamanho exato da sua imagem */
+    #container { 
+        position: relative; 
+        width: 900px; 
+        height: 400px; 
+        background-image: url('https://images.steamusercontent.com/ugc/10937689842747101507/A2973BF0CE6AF6F579D33C3EAFCDD6FF0050690A/'); 
+        background-size: 900px 400px; /* Força a imagem a ficar do tamanho do container */
+        background-repeat: no-repeat;
+		
+		/* ADICIONE ESTA LINHA ABAIXO */
+    margin-top: 0px; /* Ajuste este valor (ex: 10px, 15px, 20px) até alinhar */
+
+    }
+	
+    
+	/* Agora, ao ajustar top/left aqui, ele será relativo ao container, não ao navegador */
+    #video-principal { 
+        position: absolute; 
+        top: 58px; /* Ajuste aqui baseado no Photoshop */
+        left: 285px; 
+        width: 338px; 
+        height: 193px; 
+        border: none; 
+    }
+	
+    .btn-gratis { 
+        position: absolute; 
+        width: 100px; 
+        height: 60px; 
+        cursor: pointer; 
+        background: transparent; 
+        border: none; 
+        z-index: 10; 
+    }
+	
+	
+	
+    /* Link da Steam (Foto) */
+    #link-steam { position: absolute; top: 70px; left: 65px; width: 85px; height: 85px; z-index: 10; }
+
+    #visitantes { position: absolute; top: 34px; left: 750px; color: white; font-family: sans-serif; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <!-- Player Principal -->
+    <iframe id="video-principal" src="https://www.youtube.com/embed/ID_DO_VIDEO_1" frameborder="0" allowfullscreen></iframe>
+
+    <!-- 3 Botões "GRATIS" -->
+    <button class="btn-gratis" style="top: 320px; left: 270px;" onclick="trocarVideo('ID_VIDEO_1')"></button>
+    <button class="btn-gratis" style="top: 320px; left: 400px;" onclick="trocarVideo('ID_VIDEO_2')"></button>
+    <button class="btn-gratis" style="top: 320px; left: 530px;" onclick="trocarVideo('ID_VIDEO_3')"></button>
+
+    <!-- Link Steam (Sua foto) -->
+    <a id="link-steam" href="https://steamcommunity.com/id/avyrag/" target="_blank"></a>
+
+    <!-- Contador -->
+    <div id="visitantes">1.197</div>
+</div>
+
+<script>
+    function trocarVideo(urlCompleta) { 
+        var player = document.getElementById('video-principal');
+        // Agora ele usa o link que você mandar inteiro
+        player.src = urlCompleta; 
+    }
+</script>
+
+<!-- Seus botões na parte de baixo -->
+<!-- Basta colocar o código final do vídeo do YouTube em cada um -->
+<!-- Exemplo de como colocar os links completos -->
+<button class="btn-gratis" style="top: 320px; left: 270px;" 
+    onclick="trocarVideo('https://exemplo.com/video1.mp4')"></button>
+
+<button class="btn-gratis" style="top: 320px; left: 400px;" 
+    onclick="trocarVideo('https://exemplo.com/video2.mp4')"></button>
+
+<button class="btn-gratis" style="top: 320px; left: 530px;" 
+    onclick="trocarVideo('https://exemplo.com/video3.mp4')"></button>
+</body>
+</html>
