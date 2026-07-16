@@ -58,7 +58,7 @@
     /* Link da Steam (Foto) */
     #link-steam { position: absolute; top: 70px; left: 65px; width: 85px; height: 85px; z-index: 10; }
 
-    #visitantes { position: absolute; top: 34px; left: 750px; color: white; font-family: sans-serif; font-weight: bold; }
+    #contador { position: absolute; top: 34px; left: 750px; color: white; font-family: sans-serif; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -76,7 +76,25 @@
     <a id="link-steam" href="https://steamcommunity.com/id/avyrag/" target="_blank"></a>
 
     <!-- Contador -->
-    <div id="visitantes">1.197</div>
+	<!-- Contador -->
+	<div id="contador">1.197</div>
+	
+    <script>
+    function trocarVideo(urlCompleta) { 
+        var player = document.getElementById('video-principal');
+        player.src = urlCompleta; 
+    }
+
+    // Função para gerar o número aleatório
+    function atualizarContador() {
+        // Gera um número entre 1000 e 9999
+        var numeroAleatorio = Math.floor(Math.random() * (999 - 990 + 1)) + 1;
+        document.getElementById("contador").innerText = numeroAleatorio;
+    }
+
+    // Executa a função assim que a página abre
+    atualizarContador();
+</script>
 </div>
 
 <script>
